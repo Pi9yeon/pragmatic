@@ -14,7 +14,7 @@
         <!-- 로그인된 사용자일 경우 -->
         {% else %}
         <a href="{% url 'accountapp:detail' pk=user.pk %}">
-            <span>MyPage</span>
+            <span class="btn btn-dark">MyPage</span>
         </a>
         <form method="POST" action="{% url 'accountapp:logout' %}?next={{ request.path }}">
             {% csrf_token %}
