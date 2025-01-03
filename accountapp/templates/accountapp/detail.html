@@ -16,6 +16,11 @@
             Change Info
         </span>
     </a>
+    <a href="{% url 'accountapp:delete' pk=user.pk %}">
+        <span class="btn btn-dark rounded-pill col-6">
+            Quit
+        </span>
+    </a>
     {% endif %}
 </div>
 
