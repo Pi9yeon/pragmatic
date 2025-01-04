@@ -24,6 +24,14 @@
         </h1>
         {% endfor %}
     {% endif %}
+
+
+    {% for hello_world in hello_world_list %}
+    <h1>
+        {{ hello_world.text }}
+    </h1>
+    {% endfor %}
+
 </div>
 
 {% endblock %}
