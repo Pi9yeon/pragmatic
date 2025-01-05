@@ -6,13 +6,23 @@
     <p>
         {{ target_user.date_joined }}
     </p>
+
+    {% if target_user.profile %}
     <h2 style="font-family: 'NanumSquareBold';">
-        {{ target_user.username }}
+        {{ target_user.profile.nickname }}
     </h2>
+    {% else %}
+    <a href="{% url 'profileapp:create' %}">
+        <button style="font-family: 'NanumSquareBold'; font-size: 1.5rem;"
+            class="btn btn-secondary col-10">
+            Create Profile
+        </button>
+    </a>
+    {% endif %}
 
     {% if target_user == user %}
     <a href="{% url 'accountapp:update' pk=user.pk %}">
-        <span class="btn btn-dark rounded-pill col-6 mt-3">
+        <span class="btn btn-dark rounded-pill col-6 mt-4">
             Change Info
         </span>
     </a>
