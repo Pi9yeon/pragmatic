@@ -3,14 +3,21 @@
 {% block content %}
 
 <div style="text-align: center; max-width: 20rem; margin: 4rem auto;">
-    <p>
-        {{ target_user.date_joined }}
-    </p>
 
+    <img src="{{ target_user.profile.image.url }}" alt=""
+        style="height: 10em; width: 10rem; border-radius: 20rem; margin-bottom: 1rem;">
+    
     {% if target_user.profile %}
     <h2 style="font-family: 'NanumSquareBold';">
         {{ target_user.profile.nickname }}
     </h2>
+    <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}"
+        class="btn btn-secondary rounded-pill mt-2">
+        Edit Profile
+    </a>
+    <h5 style="margin: 1rem 0;">
+        {{ target_user.profile.message }}
+    </h5>
     {% else %}
     <a href="{% url 'profileapp:create' %}">
         <button style="font-family: 'NanumSquareBold'; font-size: 1.5rem;"
