@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    .container div {
+      width: 200px;
+      background-color: antiquewhite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 1rem;
+    }
+
+    .container img {
+        width: 100%;
+        height: auto;
+        border-radius: 1rem;
+    }
+</style>
+
+    <div class="container">
+      <div>
+          <img src="https://picsum.photos/200/300" alt="">
+      </div>
+      <div>
+          <img src="https://picsum.photos/200/340" alt="">
+      </div>
+      <div>
+          <img src="https://picsum.photos/200/260" alt="">
+      </div>
+      <div>
+          <img src="https://picsum.photos/200/400" alt="">
+      </div>
+      <div>
+          <img src="https://picsum.photos/200/510" alt="">
+      </div>
+      <div>
+          <img src="https://picsum.photos/200/250" alt="">
+      </div>
+      <div>
+          <img src="https://picsum.photos/200/200" alt="">
+      </div>
+      <div>
+          <img src="https://picsum.photos/200/440" alt="">
+      </div>
+      <div>
+          <img src="https://picsum.photos/200/320" alt="">
+      </div>
+      <div>
+          <img src="https://picsum.photos/200/290" alt="">
+      </div>
+      <div>
+          <img src="https://picsum.photos/200/250" alt="">
+      </div>
+      <div>
+          <img src="https://picsum.photos/200/450" alt="">
+      </div>
+      <div>
+          <img src="https://picsum.photos/200/300" alt="">
+      </div>
+
+    </div>
+
+<script src="https://unpkg.com/magic-grid/dist/magic-grid.min.js"></script>
+<script>
+    window.onload = function () {
+        const magicGrid = new MagicGrid({
+            container: '.container',
+            animate: true,
+            items: 13,
+            gutter: 30,
+            static: true,
+            useMin: true,
+        });
+
+        // 강제로 레이아웃 계산
+        magicGrid.listen();
+        magicGrid.positionItems();
+    };
+</script>
+
+{% endblock %}
