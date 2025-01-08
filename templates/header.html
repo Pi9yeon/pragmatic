@@ -3,7 +3,9 @@
         <h1 class="pragmatic_logo">Pragmatic</h1>
     </div>
     <div>
-        <span>nav1</span>
+        <a href="{% url 'articleapp:list' %}">
+            <span class="btn btn-dark">Articles</span>
+        </a>
         <span>nav2</span>
         <span>nav3</span>
         <!-- 비로그인 사용자일 경우 -->
