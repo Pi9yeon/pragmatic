@@ -2,28 +2,31 @@
     <div>
         <h1 class="pragmatic_logo">Pragmatic</h1>
     </div>
-    <div>
-        <a href="{% url 'articleapp:list' %}">
-            <span class="btn btn-dark">Articles</span>
+    <div class="pragmatic_header_navbar">
+        <a href="{% url 'articleapp:list' %}" class="pragmatic_header_nav">
+            <div class="btn btn-dark">Articles</div>
         </a>
-        <span>nav2</span>
-        <span>nav3</span>
+        <a href="{% url 'projectapp:list' %}" class="pragmatic_header_nav">
+            <div class="btn btn-dark">Projects</div>
+        </a>
         <!-- 비로그인 사용자일 경우 -->
         {% if not user.is_authenticated %}
-        <a href="{% url 'accountapp:login' %}?next={{ request.path }}">
-            <span class="btn btn-dark">login</span>
+        <a href="{% url 'accountapp:login' %}?next={{ request.path }}" class="pragmatic_header_nav">
+            <div class="btn btn-dark">login</div>
         </a>
-        <a href="{% url 'accountapp:create' %}">
-            <span class="btn btn-dark">SignUp</span>
+        <a href="{% url 'accountapp:create' %}" class="pragmatic_header_nav">
+            <div class="btn btn-dark">SignUp</div>
         </a>
         <!-- 로그인된 사용자일 경우 -->
         {% else %}
-        <a href="{% url 'accountapp:detail' pk=user.pk %}">
-            <span class="btn btn-dark">MyPage</span>
+        <a href="{% url 'accountapp:detail' pk=user.pk %}" class="pragmatic_header_nav">
+            <div class="btn btn-dark">MyPage</div>
         </a>
-        <form method="POST" action="{% url 'accountapp:logout' %}?next={{ request.path }}">
+        <form method="POST" action="{% url 'accountapp:logout' %}?next={{ request.path }}" class="pragmatic_header_nav">
             {% csrf_token %}
-            <input type="submit" class="btn btn-dark" value="logout">
+            <button type="submit" class="btn btn-dark">
+                logout
+            </button>
         </form>
         {% endif %}
     </div>

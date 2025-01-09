@@ -6,7 +6,7 @@
 
     {% if target_user.profile %}
     <img src="{{ target_user.profile.image.url }}" alt=""
-        style="height: 10em; width: 10rem; border-radius: 20rem; margin-bottom: 1rem;">
+        style="height: 10em; width: 10rem; border-radius: 20rem; margin-bottom: 1rem; object-fit: cover;">
 
     <h2 style="font-family: 'NanumSquareBold';">
         {{ target_user.profile.nickname }}
