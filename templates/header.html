@@ -9,6 +9,9 @@
         <a href="{% url 'projectapp:list' %}" class="pragmatic_header_nav">
             <div class="btn btn-dark">Projects</div>
         </a>
+        <a href="{% url 'subscribeapp:list' %}" class="pragmatic_header_nav">
+            <div class="btn btn-dark">Subscription</div>
+        </a>
         <!-- 비로그인 사용자일 경우 -->
         {% if not user.is_authenticated %}
         <a href="{% url 'accountapp:login' %}?next={{ request.path }}" class="pragmatic_header_nav">
