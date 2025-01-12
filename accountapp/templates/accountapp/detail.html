@@ -7,16 +7,19 @@
     {% if target_user.profile %}
     <img src="{{ target_user.profile.image.url }}" alt=""
         style="height: 10em; width: 10rem; border-radius: 20rem; margin-bottom: 1rem; object-fit: cover;">
-
-    <h2 style="font-family: 'NanumSquareBold';">
-        {{ target_user.profile.nickname }}
-    </h2>
-        {% if target_user == user %}
-        <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}"
-            class="btn btn-secondary rounded-pill mt-2">
-            Edit Profile
-        </a>
-        {% endif %}
+    <div class="d-flex justify-content-center align-items-center">
+        <h2 style="font-family: 'NanumSquareBold'; display: flex; justify-content: center; align-items: center;"
+            class="my-2 mx-2">
+            {{ target_user.profile.nickname }}
+                {% if target_user == user %}
+                <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}"
+                    class="material-icons"
+                    style="box-shadow: 0 0 4px #ccc; border-radius: 10rem; padding: .4rem; text-decoration: None; margin-left: 0.5rem;">
+                    edit
+                </a>
+                {% endif %}
+        </h2>
+    </div>
     <h5 style="margin: 1rem 0;">
         {{ target_user.profile.message }}
     </h5>
@@ -36,15 +39,19 @@
     {% endif %}
 
     {% if target_user == user %}
-    <a href="{% url 'accountapp:update' pk=user.pk %}">
-        <span class="btn btn-dark rounded-pill col-6 mt-4">
-            Change Info
-        </span>
+    <a href="{% url 'accountapp:update' pk=user.pk %}"
+        class="material-icons"
+        style="box-shadow: 0 0 4px #ccc; border-radius: 10rem; padding: .4rem; text-decoration: None;">
+        settings
     </a>
-    <a href="{% url 'accountapp:delete' pk=user.pk %}">
-        <span class="btn btn-dark rounded-pill col-6 mt-3">
-            Quit
-        </span>
+    <a href="{% url 'accountapp:delete' pk=user.pk %}"
+        class="material-icons"
+        style="box-shadow: 0 0 4px #ccc;
+               border-radius: 10rem;
+               padding: .4rem;
+               text-decoration: None;
+               color: red;">
+        highlight_off
     </a>
     {% endif %}
 </div>
